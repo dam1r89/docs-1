@@ -45,9 +45,7 @@ spec:
 
 {% tab title="Deployment" %}
 ```yaml
-ap
-
-iVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: soketi
@@ -66,11 +64,11 @@ spec:
     spec:
       containers:
         - name: soketi
-          image: soketi/soketi:0.17-16-alpine
+          image: quay.io/soketi/soketi:0.17-16-alpine
           ports:
             - containerPort: 6001
         - name: network-watcher
-          image: quay.io/soketi/network-watcher:6
+          image: quay.io/soketi/network-watcher:6.3
           env:
             - name: KUBE_CONNECTION
               value: cluster
